@@ -44,5 +44,35 @@ public class TodosTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void check2() {
+
+        Todos todos = new Todos();
+
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+
+        Task[] expected = {meeting};
+        Task[] actual = todos.search("3");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void check3() {
+
+        Todos todos = new Todos();
+
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+
+        Task[] expected = {};
+        Task[] actual = todos.search("Какос");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 
 }
